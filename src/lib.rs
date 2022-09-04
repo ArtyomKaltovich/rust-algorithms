@@ -17,7 +17,7 @@ pub fn bin_search<T: Ord>(array: &[T], elem: &T) -> Result<usize, usize>
 
 pub fn fib(n: i32) -> i64
 {
-    // use recurrent equations derived from matrix form
+    // uses recurrent equations derived from matrix form
     // https://en.wikipedia.org/wiki/Fibonacci_number#Matrix_form
     // https://www.nayuki.io/page/fast-fibonacci-algorithms
     if n <= 0 {panic!()};
