@@ -14,50 +14,19 @@ mod tests {
     }
 
     #[rstest]
-    fn for_1(test_functions: Functions) {
+    #[case(1, 1)]
+    #[case(2, 1)]
+    #[case(3, 2)]
+    #[case(5, 5)]
+    #[case(10, 55)]
+    #[case(20, 6765)]
+    fn test_fibs(
+        test_functions: Functions,
+        #[case] arg: i32,
+        #[case] expected: i64,
+    ) {
         for f in test_functions {
-            let result = f(1);
-            assert_eq!(result, 1);
-        }
-    }
-
-    #[rstest]
-    fn for_2(test_functions: Functions) {
-        for f in test_functions {
-            let result = f(2);
-            assert_eq!(result, 1);
-        }
-    }
-
-    #[rstest]
-    fn for_3(test_functions: Functions) {
-        for f in test_functions {
-            let result = f(3);
-            assert_eq!(result, 2);
-        }
-    }
-
-    #[rstest]
-    fn for_5(test_functions: Functions) {
-        for f in test_functions {
-            let result = f(5);
-            assert_eq!(result, 5);
-        }
-    }
-
-    #[rstest]
-    fn for_10(test_functions: Functions) {
-        for f in test_functions {
-            let result = f(10);
-            assert_eq!(result, 55);
-        }
-    }
-
-    #[rstest]
-    fn for_20(test_functions: Functions) {
-        for f in test_functions {
-            let result = f(20);
-            assert_eq!(result, 6765);
+            assert_eq!(f(arg), expected);
         }
     }
 }
