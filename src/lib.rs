@@ -25,17 +25,23 @@ pub fn fib(n: i32) -> i64
     let mut b = 1;
     let mut highest_power = 2_i32.pow(31 - n.leading_zeros());
     while highest_power > 0 {
-        let d = a * (2 * b - a);
-        let e = a * a + b * b;
-        a = d;
-        b = e;
+        (a, b) = (a * (2 * b - a), a * a + b * b);
 
         if n & highest_power != 0 {
-            let c = a + b;
-            a = b;
-            b = c;
+            (a, b) = (b, a + b)
         }
         highest_power >>= 1;
     }
     return a;
+}
+
+pub fn fib_simple(n: i32) -> i64
+{
+    if n <= 0 {panic!()};
+    let mut a = 0;
+    let mut b = 1;
+    for _ in 1..n {
+        (a, b) = (b, a + b)
+    }
+    return b;
 }
