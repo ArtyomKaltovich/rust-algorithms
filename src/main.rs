@@ -13,5 +13,4 @@ fn main() {
     let t3 = t2.elapsed();
     println!("Elapsed on fib simple: {:.2?}", t2 - t1);
     println!("Elapsed on fib: {:.2?}", t3);
-    // in debug fib is > 10x faster in release - slower :)
 }
