@@ -17,4 +17,24 @@ mod tests {
     ) {
         assert_eq!(f(arg), expected);
     }
+
+    #[rstest]
+    #[case(20, 6765)]
+    fn test_fibs_i32(
+        #[values(fib, fib_simple)] f: fn(i32) -> i32,
+        #[case] arg: i32,
+        #[case] expected: i32,
+    ) {
+        assert_eq!(f(arg), expected);
+    }
+
+    #[rstest]
+    #[case(20, 6765)]
+    fn test_fibs_i128(
+        #[values(fib, fib_simple)] f: fn(i32) -> i128,
+        #[case] arg: i32,
+        #[case] expected: i128,
+    ) {
+        assert_eq!(f(arg), expected);
+    }
 }
