@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests {
     use rstest::rstest;
-    use algorithms::{insert_sort, bubble_sort};
+    use algorithms::sort::{insert_sort, bubble_sort};
 
     #[rstest]
     #[case(&[1], &[1])]
@@ -16,7 +16,7 @@ mod tests {
         #[case] array: &[i32],
         #[case] expected: &[i32],
     ) {
-        let actual = insert_sort(array);
+        let actual = sort_function(array);
         assert_eq!(expected, actual);
     }
 }

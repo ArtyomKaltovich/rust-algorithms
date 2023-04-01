@@ -1,5 +1,6 @@
 use std::time::Instant;
-use algorithms::{fib, fib_simple, insert_sort, bubble_sort};
+use algorithms::{fib, fib_simple};
+use algorithms::sort::{bubble_sort, insert_sort};
 use rand::prelude::*;
 
 fn main() {
