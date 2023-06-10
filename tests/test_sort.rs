@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod tests {
     use rstest::rstest;
-    use algorithms::sort::{insert_sort, bubble_sort};
+    use algorithms::sort::{insert_sort, bubble_sort, count_sort};
 
     #[rstest]
     #[case(&[1], &[1])]
@@ -12,7 +12,7 @@ mod tests {
     #[case(&[1, 0, -1], &[-1, 0, 1])]
     #[case(&[5, 1, 1, -1], &[-1, 1, 1, 5])]
     fn test_sort(
-        #[values(insert_sort, bubble_sort)] sort_function: fn(&[i32]) -> Vec<i32>,
+        #[values(insert_sort, bubble_sort, count_sort)] sort_function: fn(&[i32]) -> Vec<i32>,
         #[case] array: &[i32],
         #[case] expected: &[i32],
     ) {
