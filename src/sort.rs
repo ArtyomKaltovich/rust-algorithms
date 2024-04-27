@@ -10,9 +10,7 @@ pub fn insert_sort<T: Ord + Clone>(array: &[T]) -> Vec<T> {
                 current = j;
             }
         }
-        let temp = result[current].clone();
-        result[current] = result[i].clone();
-        result[i] = temp;
+        result.swap(current, i);
     }
     result
 }
@@ -22,9 +20,7 @@ pub fn bubble_sort<T: Ord + Clone>(array: &[T]) -> Vec<T> {
     for i in 0..result.len() {
         for j in (i + 1)..result.len() {
             if result[i] > result[j] {
-                let temp = result[j].clone();
-                result[j] = result[i].clone();
-                result[i] = temp;
+                result.swap(i, j);
             }
         }
     }
