@@ -35,7 +35,7 @@ pub fn fib<T: Integer + Copy>(n: i32) -> T
         }
         highest_power >>= 1;
     }
-    return a;
+    a
 }
 
 pub fn fib_simple<T: Integer + Copy>(n: i32) -> T
@@ -46,5 +46,5 @@ pub fn fib_simple<T: Integer + Copy>(n: i32) -> T
     for _ in 1..n {
         (a, b) = (b, a + b)
     }
-    return b;
+    b
 }

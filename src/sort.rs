@@ -28,8 +28,7 @@ pub fn bubble_sort<T: Ord + Clone>(array: &[T]) -> Vec<T> {
 }
 
 pub fn count_sort<T: Ord + Copy + Hash>(array: &[T]) -> Vec<T> {
-    let mut result: Vec<T> = vec![];
-    result.reserve(array.len());
+    let mut result: Vec<T> = Vec::with_capacity(array.len());
     let hash_map = get_count_hash(array);
     let mut keys = hash_map.keys().collect::<Vec<&T>>();
     keys.sort();
